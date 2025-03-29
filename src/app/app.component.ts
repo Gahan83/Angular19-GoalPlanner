@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +8,21 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular19-GoalTracker';
+  @ViewChild("loginModal") loginModal!: ElementRef
+
+  public openModal():void
+  {
+    if(this.loginModal)
+    {
+      this.loginModal.nativeElement.style.display="block";
+    }
+  }
+
+  public closeModal():void
+  {
+    if(this.loginModal)
+    {
+      this.loginModal.nativeElement.style.display="none";
+    }
+  }
 }
