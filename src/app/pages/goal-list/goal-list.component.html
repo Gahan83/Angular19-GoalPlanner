@@ -1,1 +1,39 @@
-<p>goal-list works!</p>
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="fw-bold">Goals</h1>
+        <button class="btn btn-primary" (click)="navigateToNewGoal()">
+            <i class="fas fa-plus me-2"></i>New Goal
+        </button>
+    </div>
+
+    <div class="row">
+        @for (item of goalList; track $index) {
+            <div class="col-md-6 mb-4">
+                <div class="card goal-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.goalName}}</h5>
+                        <div class="progress mb-3">
+                            <div class="progress-bar" role="progressbar" style="width: 60%">60%</div>
+                        </div>
+                        <!-- <h6 class="card-subtitle mb-3">Milestones:</h6> -->
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Description
+                                <span class="badge bg-success rounded-pill">{{item.description}}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                StartDate
+                                <span class="badge bg-warning rounded-pill">{{item.startDate | date: 'dd-mm-yyyy'}}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                EndDate
+                                <span class="badge bg-secondary rounded-pill">{{item.endDate | date: 'dd-mm-yyyy'}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
